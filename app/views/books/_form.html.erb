@@ -28,10 +28,12 @@
 =end%>
   <div class="field">
     <%= form.label :author_id, style: "display: block" %>
-    <%= form.collection_select :author_id, Author.all, :id, :name, prompt: 'Selecionar autor' %>
+    <%= form.collection_select :author_id, Author.all, :id, :name, prompt: 'Select author' %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+
