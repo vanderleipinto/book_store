@@ -7,3 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Book.create(title: "The Twin Towers", description: "Second book of the saga Lord of The Rings
+", author_id: 1)
+
+Book.create(title: "The Return of the King", description: "Third book of the saga Lord of The Rings
+", author_id: 1)
