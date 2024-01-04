@@ -16,6 +16,16 @@
     <%= form.text_field :name %>
   </div>
 
+  <div >
+    <%= form.label :parts, "Select Parts" %>
+    <% Part.all.each do |part| %>
+      <div class="checkbox">
+        <%= check_box_tag "assembly[part_ids][]", part.id, @assembly.parts.include?(part) %>
+        <%= label_tag "assembly_part_ids_#{part.id}", part.name %>
+      </div>
+    <% end %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
