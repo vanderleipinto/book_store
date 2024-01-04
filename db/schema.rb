@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_04_175538) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_04_183704) do
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "account_number"
     t.bigint "supplier_id", null: false
@@ -23,6 +23,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_04_175538) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "assemblies_books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "assembly_id", null: false
+    t.bigint "book_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assembly_id"], name: "index_assemblies_books_on_assembly_id"
+    t.index ["book_id"], name: "index_assemblies_books_on_book_id"
+  end
+
+  create_table "assemblies_parts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "assembly_id", null: false
+    t.bigint "part_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assembly_id"], name: "index_assemblies_parts_on_assembly_id"
+    t.index ["part_id"], name: "index_assemblies_parts_on_part_id"
   end
 
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -55,6 +73,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_04_175538) do
   end
 
   add_foreign_key "accounts", "suppliers"
+  add_foreign_key "assemblies_books", "assemblies"
+  add_foreign_key "assemblies_books", "books"
+  add_foreign_key "assemblies_parts", "assemblies"
+  add_foreign_key "assemblies_parts", "parts"
   add_foreign_key "books", "authors"
   add_foreign_key "parts", "suppliers"
 end
