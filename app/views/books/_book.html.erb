@@ -14,4 +14,19 @@
     <%= book.author.name %>
   </p>
 
+  <p>
+    <strong>Assemblies:</strong>
+    <%if book.assemblies.any?%>
+      <ul>
+      <% book.assemblies.each do |assembly| %>
+      <div>
+        <li><%=assembly.name%></li>
+      </div>
+      <%end%>
+      </ul>
+    </p>
+    <%else%>
+      <p>This book has no assemblies</p>
+    <%end%>
+
 </div>
