@@ -49,7 +49,7 @@ class SuppliersController < ApplicationController
 
   # DELETE /suppliers/1 or /suppliers/1.json
   def destroy
-    @supplier.destroy!
+    @supplier.destroy! 
 
     respond_to do |format|
       format.html { redirect_to suppliers_url, notice: "Supplier was successfully destroyed." }
@@ -65,6 +65,6 @@ class SuppliersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def supplier_params
-      params.require(:supplier).permit(:name)
+      params.require(:supplier).permit(:name, :cnpj)
     end
 end
