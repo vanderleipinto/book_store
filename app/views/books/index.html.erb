@@ -3,8 +3,10 @@
 <h1>Books</h1>
 
 <div id="books">
-  <% @books.each do |book| %>
+  <% @books.each_with_index do |book, index| %>
+  <div ></div>
     <%= render book %>
+  </div>  
     <p>
       <%= link_to "Show this book", book %>
     </p>
