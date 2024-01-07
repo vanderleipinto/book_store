@@ -43,7 +43,12 @@
       <%= form.label :assembly_ids, assembly.name %><br>
     <% end %>
   </div>
-  <hr>
+
+  <div>
+    <%= form.label :isbn, style: "display: block" %>
+    <%= form.text_field :isbn %>
+  </div>
+  
   <hr>
   
 
