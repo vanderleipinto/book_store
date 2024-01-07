@@ -3,5 +3,11 @@ class Book < ApplicationRecord
   has_and_belongs_to_many :assemblies
 
   validates :title, presence: true
-  
+  validate :isbn, :isbn_valid
+
+  private
+
+  def isbn_valid
+    errors.add :isbn, "invalid isbn." unless ISBN.valid?(isbn)
+  end
 end
