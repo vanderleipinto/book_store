@@ -1,8 +1,11 @@
 <div>
   <%= form_tag(books_path, method: :get) do %>
-    <label for="search_title">Title:</label>
-    <%= text_field_tag(:search_title) %> 
+  <label for="search_title">Title:</label>
+  <%= text_field_tag(:search_title) %> 
+  
+  <label for="search_title">Author:</label>
+    <%= text_field_tag(:search_author) %> 
 
     <%= submit_tag("Search Book(s)") %>
   <% end %>
-</div>
+</div> 
