@@ -13,3 +13,12 @@ Book.create(title: "The Twin Towers", description: "Second book of the saga Lord
 
 Book.create(title: "The Return of the King", description: "Third book of the saga Lord of The Rings
 ", author_id: 1)
+
+Account.create(account_number: '38547159', supplier_id: '4')
+Account.create(account_number: '75675545', supplier_id: '3')
+Account.create(account_number: '45675234', supplier_id: '5')
+Account.create(account_number: '25468456', supplier_id: '2')
+Account.create(account_number: '97885324', supplier_id: '1')
+Account.create(account_number: '15678424', supplier_id: '2')
+
+

@@ -2,6 +2,8 @@
 
 <h1>Authors</h1>
 
+<%= render "search_form", author: @author %>
+
 <div id="authors">
   <% @authors.each do |author| %>
     <%= render author %>
@@ -12,3 +14,6 @@
 </div>
 
 <%= link_to "New author", new_author_path %>
+
+
+

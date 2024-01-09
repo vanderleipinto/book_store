@@ -3,7 +3,14 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.all
+    
+    if params[:search_name].present?
+      @authors = Author.where("name LIKE ?", "%#{params[:search_name]}%")
+      
+
+    else
+      @authors = Author.all      
+    end
   end
 
   # GET /authors/1 or /authors/1.json
