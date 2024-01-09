@@ -3,7 +3,13 @@ class PartsController < ApplicationController
 
   # GET /parts or /parts.json
   def index
-    @parts = Part.all
+    
+    if params[:search_part].present?
+      @parts = Part.where("name LIKE ?", "%#{params[:search_part]}%")
+    else
+      @parts = Part.all
+    end
+
   end
 
   # GET /parts/1 or /parts/1.json
