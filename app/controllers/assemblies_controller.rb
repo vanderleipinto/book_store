@@ -4,8 +4,8 @@ class AssembliesController < ApplicationController
   # GET /assemblies or /assemblies.json
   def index
 
-    if params[:search_assembly].present?
-      @assemblies = Assembly.where("name LIKE ?", "%#{params[:search_assembly]}%")
+    if params[:search_assembly].present? || params[:search_part].present?
+      @assemblies = Assembly.joins(:parts).where("parts.name LIKE ? AND assemblies.name LIKE ?", "#{params[:search_part]}%", "%#{params[:search_assembly]}%")
     else
       @assemblies = Assembly.all
     end
