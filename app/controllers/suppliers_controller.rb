@@ -3,7 +3,13 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers or /suppliers.json
   def index
-    @suppliers = Supplier.all
+    if params[:search_supplier].present?
+      @suppliers = Supplier.where("name LIKE ?","%#{params[:search_supplier]}%")
+    elsif params[:search_author].present?
+      @suppliers = Supplier.joins(parts: { assemblies: { books: :author } }).where(authors: { id: params[:search_author] })    
+    else
+      @suppliers = Supplier.all
+    end
   end
 
   # GET /suppliers/1 or /suppliers/1.json

@@ -1,0 +1,32 @@
+<div>
+  <%= form_tag(suppliers_path, method: :get) do %>
+    <label for="search_supplier">Title:</label>
+    <%= text_field_tag(:search_supplier) %> 
+    
+    <%= submit_tag("Search Supplier(s)") %>
+    <% end %>
+</div> 
+<br>
+
+
+<div>
+  <%= form_tag(suppliers_path, method: :get) do %>    
+    
+    <label for="search_author">Author:</label>    
+
+    <%= select_tag(:search_author, options_for_select(Author.pluck(:name, :id)), prompt: "Choose an Author") %>
+
+    <%= submit_tag("Search Author's Supplier(s)") %>
+    <% end %>
+</div> 
+
+<!-- <div>
+  <%= form_with model: author do |form| %>    
+    
+  
+    <%= form.label :author_id, style: "display: block" %>
+    <%= form.collection_select :author_id, Author.all, :id, :name, prompt: 'Select author' %>
+  
+    <%= form.submit "Search" %>
+    <% end %>
+</div>  -->
