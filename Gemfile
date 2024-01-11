@@ -29,7 +29,7 @@ gem "jbuilder"
 # Validator to CPF and CNPJ
 gem 'cpf_cnpj', '~> 0.2.1'
 
-# Validator to ISPN
+# Validator to ISBN
 gem 'isbn', '~> 2.0', '>= 2.0.11'
 
 
