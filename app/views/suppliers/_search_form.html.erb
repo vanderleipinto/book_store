@@ -6,8 +6,6 @@
     <%= submit_tag("Search Supplier(s)") %>
     <% end %>
 </div> 
-<br>
-
 
 <div>
   <%= form_tag(suppliers_path, method: :get) do %>    
@@ -19,14 +17,3 @@
     <%= submit_tag("Search Author's Supplier(s)") %>
     <% end %>
 </div> 
-
-<!-- <div>
-  <%= form_with model: author do |form| %>    
-    
-  
-    <%= form.label :author_id, style: "display: block" %>
-    <%= form.collection_select :author_id, Author.all, :id, :name, prompt: 'Select author' %>
-  
-    <%= form.submit "Search" %>
-    <% end %>
-</div>  -->
