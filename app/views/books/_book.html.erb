@@ -13,8 +13,7 @@
     <strong>Author:</strong>
     <%= book.author.name %>
   </p>
-
-  <p>
+  
     <strong>Assemblies:</strong>
     <%if book.assemblies.any?%>
       <ul>
@@ -29,4 +28,6 @@
       <p>This book has no assemblies</p>
     <%end%>
 
+    <strong>ISBN:</strong>
+    <%= book.isbn %>
 </div>

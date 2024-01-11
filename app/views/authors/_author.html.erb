@@ -4,4 +4,18 @@
     <%= author.name %>
   </p>
 
+  <strong>Books:</strong>
+    <%if author.books.any?%>
+      <ul>
+      <% author.books.each do |book| %>
+      <div>
+        <li><%=book.title%></li>
+      </div>
+      <%end%>
+      </ul>
+    </p>
+    <%else%>
+      <p>This author has no books.</p>
+    <%end%>
+
 </div>
