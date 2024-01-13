@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_001312) do
     t.bigint "supplier_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "value", precision: 10
+    t.decimal "value", precision: 8, scale: 2
     t.index ["supplier_id"], name: "index_parts_on_supplier_id"
   end
 

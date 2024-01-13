@@ -15,6 +15,11 @@
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
+  <div>
+    <%= form.label :value, style: "display: block" %>
+    <%= form.text_field :value %>
+  </div>
+  
   <% if Supplier.any?%>
   <div class="field">
     <%= form.label :supplier_id, style: "display: block" %>
