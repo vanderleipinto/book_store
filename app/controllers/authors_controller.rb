@@ -28,9 +28,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1/report
   def report
 
-    @books = @author.books
-    #@assemblies = Assembly.joins(:books).where(books: { author_id: @author.id })
-    #@suppliers = Supplier.joins(parts: { assemblies: :books }).where(books: { author_id: @author.id })
+    @books = @author.books    
   
   end
 
