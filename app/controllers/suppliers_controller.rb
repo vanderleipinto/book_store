@@ -1,5 +1,5 @@
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: %i[ show edit update destroy ]
+  before_action :set_supplier, only: %i[ report show edit update destroy ]
 
   # GET /suppliers or /suppliers.json
   def index
@@ -23,6 +23,13 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers/1/edit
   def edit
+  end
+
+  # GET /suppliers/1/report
+  def report
+
+    
+  
   end
 
   # POST /suppliers or /suppliers.json
@@ -67,6 +74,7 @@ class SuppliersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_supplier
       @supplier = Supplier.find(params[:id])
+      @books = Book.joins(assemblies: :parts).where(parts: { supplier_id: @supplier.id }).distinct
     end
 
     # Only allow a list of trusted parameters through.
