@@ -62,7 +62,7 @@
           </td>
           <td>
             <ul>
-              <% authors = Author.joins(books: { assemblies: :parts }).where(parts: {id: part.id}) %>
+              <% authors = Author.joins(books: { assemblies: :parts }).where(parts: {id: part.id}).distinct %>
               <% if authors.any? %>
                 <% authors.each do |author| %>
                   <li><%= author.name %></li>
