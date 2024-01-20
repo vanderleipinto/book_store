@@ -27,9 +27,7 @@ class AuthorsController < ApplicationController
   
   # GET /authors/1/report
   def report
-
-    @books = @author.books    
-  
+    @books = @author.books
   end
 
   # POST /authors or /authors.json

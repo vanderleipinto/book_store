@@ -26,10 +26,7 @@ class SuppliersController < ApplicationController
   end
 
   # GET /suppliers/1/report
-  def report
-
-    
-  
+  def report  
   end
 
   # POST /suppliers or /suppliers.json

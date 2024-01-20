@@ -1,0 +1,74 @@
+<style>
+  table, th, td {
+    border:1px solid black;
+  }
+</style>
+
+
+<h1>Report</h1>
+
+<h2><%=@book.title%></h2>
+<div>
+  <strong> ISBN: <%=@book.isbn%></strong>
+</div>
+
+<div>
+  <strong>Description: </strong>
+  <span><%= @book.description %></span>
+</div>
+
+<div>
+  <strong>Assemblies:</strong>
+  <strong>Total: <%= @book.assemblies.count %></strong>
+</div>
+
+<% if @book.assemblies.any?  %>
+<table border="1" style="width:80%">
+    <thead>
+      <tr>
+        <th>Assemblies</th>
+        <th>Parts</th>
+        <th>Part Value</th>
+        <th>Total Value</th>
+        
+      </tr>
+    </thead>
+    <tbody> 
+      
+        <% @book.assemblies.each do |assembly| %>
+          <tr>
+            <td><%= link_to assembly.name, assembly %></td>
+            <td>
+              <% if assembly.parts.any?  %>
+                <ul>
+                  <%assembly.parts.each do |part|%>
+                    <li><%= part.name %></li>
+                  <% end %>
+                </ul>              
+              <%end%>
+            </td>
+            <td>
+              <% if assembly.parts.any?  %>
+              <ul>
+                <%assembly.parts.each do |part|%>
+                  <li>$  <%= part.value %></li>
+                <% end %>
+              </ul>
+            <%end%>
+            </td>
+            
+            <td>
+              <% if assembly.parts.any?  %>
+                $ <%= assembly.parts.sum(:value) %>
+              <% else %>
+              No Parts
+              <% end %>
+            </td>
+          </tr>          
+        <% end %> 
+        <% else %>
+          <strong>This book has no assemblies.</strong>
+        <% end %> 
+
+    </tbody>
+  </table> 
